@@ -8,28 +8,32 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.philips.casestudy.chatbot.domain.Question;
+import com.philips.casestudy.chatbot.domain.UserInfo;
 import com.philips.casestudy.chatbot.dto.AnswerDTO;
 
 public class ChatBotView  {
 
   static List<String> userAnswers=new ArrayList<>();
   static Scanner sc = new Scanner(System.in);
-  static Map<String, String> userDetails = new HashMap<>();
+  //  static Map<String, String> userDetails = new HashMap<>();
   static boolean checkIfNameCorrect=false;
   static boolean checkIfContactCorrect=false;
   static boolean checkIfEmailCorrect=false;
   static boolean checkIfCityCorrect=false;
+
+  static UserInfo user=new UserInfo();
+
+
 
   public static Logger returnLogger() {
     return Logger.getLogger(ChatBotView.class.getName());
@@ -58,12 +62,11 @@ public class ChatBotView  {
 
   public static void getUserDetails() {
 
-
     printInfo("Please Provide following information");
-    gettingName(userDetails);
-    gettingcontact(userDetails);
-    gettingEmail(userDetails);
-    gettingCity(userDetails);
+    gettingName(user);
+    gettingcontact(user);
+    gettingEmail(user);
+    gettingCity(user);
 
   }
 
@@ -135,7 +138,7 @@ public class ChatBotView  {
       userAnswers.clear();
 
       getUserDetails();
-      final String json=new ObjectMapper().writeValueAsString(userDetails);
+      final String json=new ObjectMapper().writeValueAsString(user);
 
       final URL obj = new URL("http://localhost:8080/api/users");
       final HttpURLConnection postConnection = (HttpURLConnection) obj.openConnection();
@@ -306,7 +309,7 @@ public class ChatBotView  {
     return city.matches("^[A-Za-z]*$");
   }
 
-  public static void gettingName(Map<String,String> userDetails)
+  public static void gettingName(UserInfo user)
   {
     while(!checkIfNameCorrect)
     {
@@ -314,7 +317,7 @@ public class ChatBotView  {
       if(checkingNameField(name))
       {
         checkIfNameCorrect=true;
-        userDetails.put("name", name);
+        user.setName(name);
         break;
       }
       else
@@ -325,21 +328,21 @@ public class ChatBotView  {
     }
 
   }
-  public static void gettingcontact(Map<String,String> userDetails)
+  public static void gettingcontact(UserInfo user)
   {
     while(!checkIfContactCorrect)
     { final String contactNo = fromKB("your contact number ");
     if(checkingContactField(contactNo))
     {
       checkIfContactCorrect=true;
-      userDetails.put("contactNo", contactNo);
+      user.setcontactno(new BigInteger(contactNo));
     } else {
       printError("This need only digits till length 10");
     }
     }
 
   }
-  public static void gettingEmail(Map<String,String> userDetails)
+  public static void gettingEmail(UserInfo user)
   {
 
     while(!checkIfEmailCorrect)
@@ -348,13 +351,13 @@ public class ChatBotView  {
       if(checkingEmailField(email))
       {
         checkIfEmailCorrect=true;
-        userDetails.put("email", email);
+        user.setEmail(email);
       } else {
         printError("It must end with @gmail.com or @yahoo.com");
       }
     }
   }
-  public static void gettingCity(Map<String,String> userDetails)
+  public static void gettingCity(UserInfo user)
   {
     while(!checkIfCityCorrect)
     {
@@ -362,7 +365,7 @@ public class ChatBotView  {
       if(checkingCityField(city))
       {
         checkIfCityCorrect=true;
-        userDetails.put("city", city);
+        user.setCity(city);
       } else {
         printError("Only alphabets");
       }

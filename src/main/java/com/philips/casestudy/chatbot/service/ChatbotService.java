@@ -59,6 +59,7 @@ public class ChatbotService implements ChatBotServiceInterface {
   public int saveUsers(UserInfoDTO user) {
     if(userInfoDAO.findByContactno(user.getcontactno()).isEmpty() && userInfoDAO.findByEmail(user.getEmail()).isEmpty())
     {
+      System.out.println("Contact ; "+user.getcontactno());
       return userInfoDAO.save(user.getName(),user.getcontactno(),user.getEmail(),user.getCity());
     }
     else

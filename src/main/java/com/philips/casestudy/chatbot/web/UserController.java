@@ -20,6 +20,7 @@ public class UserController {
 
   @PostMapping("/api/users")
   public ResponseEntity<String> addUsers(@RequestBody UserInfoDTO toBeSaved){
+    System.out.println("in controller : "+toBeSaved.getcontactno());
     final int id=service.saveUsers(toBeSaved);
     if(id!=0) {
       return new ResponseEntity<>(HttpStatus.CREATED);
