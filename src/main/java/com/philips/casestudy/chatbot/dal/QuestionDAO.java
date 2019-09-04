@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Repository;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -20,10 +21,22 @@ import com.philips.casestudy.chatbot.domain.Question;
 @Repository
 public class QuestionDAO implements QuestionDAOInterface {
 
-
-  public byte[] readJSONForQuestions() throws IOException
+  private static String path;
+  static
   {
-    return Files.readAllBytes(Paths.get("C:/Users/320065420/BootCamp/ChatBot phase1-4.2(Input validation)/ChatBot/src/main/resources/question.txt"));
+    try {
+      final ResourceBundle props=ResourceBundle.getBundle("questionpath");
+      path=props.getString("path");
+    }
+    catch(final Exception e)
+    {
+      e.getMessage();
+    }
+  }
+  @Override
+  public byte[] readJSONForQuestions(String path) throws IOException
+  {
+    return Files.readAllBytes(Paths.get(path));
   }
 
 
@@ -31,7 +44,7 @@ public class QuestionDAO implements QuestionDAOInterface {
   public Question getQuestionByIndex(int index) throws IOException {
 
     final ObjectMapper objectMapper = new ObjectMapper();
-    final byte[] jsonData =readJSONForQuestions();
+    final byte[] jsonData =readJSONForQuestions(path);
     final List<Question> questionList = objectMapper.readValue(jsonData, new TypeReference<List<Question>>(){});
     return getRequiredQuestion(questionList,index);
   }

@@ -19,4 +19,7 @@ public interface QuestionDAOInterface {
 
   public Map<String,String> getOptions(int index,String answer) throws IOException;
 
+
+  public byte[] readJSONForQuestions(String path) throws IOException;
+
 }

@@ -1,0 +1,30 @@
+/*
+ * The copyright of this file belongs to Koninklijke Philips N.V., 2019.
+ */
+package com.philips.casestudy.chatbot.dto;
+
+import static org.junit.Assert.assertTrue;
+import org.junit.Test;
+import com.philips.casestudy.chatbot.domain.MonitoringDevice;
+
+public class MonitoringDeviceDTOTest {
+
+  @Test
+  public void when_Convert_MonitoringDto_To_MonitoringEntity_thenCorrect() {
+
+    final MonitoringDeviceDTO monitoringDto = new MonitoringDeviceDTO();
+
+    monitoringDto.setName("GoldwayMan40E");
+    monitoringDto.setTouch("touch");
+    monitoringDto.setScreenSize(10);
+    final MonitoringDevice saveddevice=monitoringDto.changeDTOToEntity(monitoringDto);
+
+    assertTrue(saveddevice.getName().equals(monitoringDto.getName()));
+    assertTrue(saveddevice.getTouch().equals(monitoringDto.getTouch()));
+    assertTrue(saveddevice.getScreenSize()==monitoringDto.getScreenSize());
+
+
+
+  }
+
+}
