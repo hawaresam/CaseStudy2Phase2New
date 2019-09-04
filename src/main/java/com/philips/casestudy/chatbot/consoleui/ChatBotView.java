@@ -25,7 +25,6 @@ public class ChatBotView  {
 
   static List<String> userAnswers=new ArrayList<>();
   static Scanner sc = new Scanner(System.in);
-  //  static Map<String, String> userDetails = new HashMap<>();
   static boolean checkIfNameCorrect=false;
   static boolean checkIfContactCorrect=false;
   static boolean checkIfEmailCorrect=false;

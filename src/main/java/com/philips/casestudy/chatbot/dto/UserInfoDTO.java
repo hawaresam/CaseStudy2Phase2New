@@ -12,6 +12,12 @@ public class UserInfoDTO {
   BigInteger contactno;
   String email;
   String city;
+  int id;
+
+  public UserInfoDTO()
+  {
+
+  }
 
   public UserInfoDTO(UserInfo user)
   {
@@ -24,9 +30,18 @@ public class UserInfoDTO {
     this.contactno = contactno;
     this.email = email;
     this.city = city;
+    //this.id=id;
   }
 
 
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
 
   public String getName() {
     return name;

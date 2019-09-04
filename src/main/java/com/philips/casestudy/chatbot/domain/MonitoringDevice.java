@@ -30,6 +30,9 @@ public class MonitoringDevice {
     return id;
   }
 
+  public void setId(int id) {
+    this.id = id;
+  }
   public MonitoringDevice(String name, String touch, float screenSize) {
     super();
     this.name = name;

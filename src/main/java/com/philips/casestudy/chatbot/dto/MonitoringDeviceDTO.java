@@ -10,6 +10,11 @@ public class MonitoringDeviceDTO {
   String name;
   String touch;
   float screenSize;
+  int id;
+  public MonitoringDeviceDTO()
+  {
+
+  }
 
   public MonitoringDeviceDTO(MonitoringDevice device)
   {
@@ -22,6 +27,15 @@ public class MonitoringDeviceDTO {
     this.touch=touch;
     this.screenSize=screenSize;
   }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
   public String getName() {
     return name;
   }
