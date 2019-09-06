@@ -33,10 +33,17 @@ public class QuestionController {
 
   @GetMapping("/api/questions/{index}/{answer}")
   public ResponseEntity<String> checkIfCorrectOptionIsSelected(@PathVariable("index") int index,@PathVariable("answer") String answer) throws IOException{
+<<<<<<< HEAD
     final boolean ifNotOptionPresent=questionService.getOptions(index, answer);
     final HttpHeaders headers=new HttpHeaders();
     headers.add("ErrorMessage","Please enter among the correct options");
     if(!ifNotOptionPresent) {
+=======
+    final boolean ifOptionPresent=questionService.getOptions(index, answer);
+    final HttpHeaders headers=new HttpHeaders();
+    headers.add("ErrorMessage","Please enter among the correct options");
+    if(!ifOptionPresent) {
+>>>>>>> 3be535c0865bb86a4fc0e35f771903a8e94a8f48
       return new ResponseEntity<>(HttpStatus.OK);
     }
     return new ResponseEntity<>(headers,HttpStatus.BAD_REQUEST);

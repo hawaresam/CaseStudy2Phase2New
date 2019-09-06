@@ -3,17 +3,23 @@
  */
 package com.philips.casestudy.chatbot.service;
 
+<<<<<<< HEAD
 import static org.junit.Assert.assertEquals;
+=======
+>>>>>>> 3be535c0865bb86a4fc0e35f771903a8e94a8f48
 import static org.junit.Assert.assertFalse;
 import java.io.IOException;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.junit.Test;
+<<<<<<< HEAD
 import org.mockito.Mockito;
 import com.philips.casestudy.chatbot.dal.QuestionDAO;
 import com.philips.casestudy.chatbot.dal.QuestionDAOInterface;
 import com.philips.casestudy.chatbot.domain.Question;
+=======
+>>>>>>> 3be535c0865bb86a4fc0e35f771903a8e94a8f48
 
 public class QuestionServiceTest {
 
@@ -21,18 +27,27 @@ public class QuestionServiceTest {
   public void validateOptions_OptionId_Present() throws IOException
   {
 
+<<<<<<< HEAD
     final QuestionServiceInterface service=new QuestionService();
+=======
+>>>>>>> 3be535c0865bb86a4fc0e35f771903a8e94a8f48
     final Map<String, String> options = Stream.of(new String[][] {
       { "1", "touch" },
       { "2", "nontouch" },
       { "3", "does"}
     }).collect(Collectors.toMap(data -> data[0], data -> data[1]));
 
+<<<<<<< HEAD
     assertFalse(service.validate(options, "1"));
+=======
+    final QuestionServiceInterface dummyQuestionService=new QuestionService();
+    assertFalse(dummyQuestionService.validate(options, "1"));
+>>>>>>> 3be535c0865bb86a4fc0e35f771903a8e94a8f48
 
 
   }
 
+<<<<<<< HEAD
   @Test
   public void returnQuestion_When_Question_Present() throws IOException
   {
@@ -88,4 +103,7 @@ public class QuestionServiceTest {
     assertEquals(null, required);
 
   }
+=======
+
+>>>>>>> 3be535c0865bb86a4fc0e35f771903a8e94a8f48
 }

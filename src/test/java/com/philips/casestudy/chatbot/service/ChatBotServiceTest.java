@@ -3,13 +3,18 @@
  */
 package com.philips.casestudy.chatbot.service;
 
+<<<<<<< HEAD
 import static org.junit.Assert.assertEquals;
 import java.math.BigInteger;
 import java.util.ArrayList;
+=======
+import static org.junit.Assert.assertTrue;
+>>>>>>> 3be535c0865bb86a4fc0e35f771903a8e94a8f48
 import java.util.List;
 import org.junit.Test;
 import org.mockito.Mockito;
 import com.philips.casestudy.chatbot.dal.MonitoringDeviceInterface;
+<<<<<<< HEAD
 import com.philips.casestudy.chatbot.dal.UserInfoInterface;
 import com.philips.casestudy.chatbot.domain.MonitoringDevice;
 import com.philips.casestudy.chatbot.domain.UserInfo;
@@ -119,6 +124,27 @@ public class ChatBotServiceTest {
   }
 
 
+=======
+import com.philips.casestudy.chatbot.domain.MonitoringDevice;
+
+public class ChatBotServiceTest {
+
+  @Test
+  public void parameters_Of_Monitoring_Device_Present()
+  {
+    final MonitoringDeviceInterface dummyInterface=Mockito.mock(MonitoringDeviceInterface.class);
+    final List<MonitoringDevice> returnedList=dummyInterface.findByParameters("GoldManWay40E", "touch", 12);
+    assertTrue(returnedList.isEmpty());
+  }
+
+  //  @Test
+  //  public void parameters_Of_Monitoring_Device_Not_Present()
+  //  {
+  //    final MonitoringDeviceInterface dummyInterface=Mockito.mock(MonitoringDeviceInterface.class);
+  //    final List<MonitoringDevice> returnedList=dummyInterface.findByParameters("GoldManWay50E", "touch", 12);
+  //    assertTrue(!returnedList.isEmpty());
+  //  }
+>>>>>>> 3be535c0865bb86a4fc0e35f771903a8e94a8f48
 }
 
 

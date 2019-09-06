@@ -247,7 +247,10 @@ public class ChatBotView  {
 
     try {
       final String json=new ObjectMapper().writeValueAsString(answerSet);
+<<<<<<< HEAD
       // System.out.println(json);
+=======
+>>>>>>> 3be535c0865bb86a4fc0e35f771903a8e94a8f48
       final URL obj = new URL("http://localhost:8080/api/getDevices");
       final HttpURLConnection postConnection = (HttpURLConnection) obj.openConnection();
       postConnection.setRequestMethod("POST");

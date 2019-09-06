@@ -107,6 +107,7 @@ public class MonitoringControllerTest {
   }
 
 
+<<<<<<< HEAD
   @Test
   public void getDevices_When_Touch_Null_ScreenSize_10() throws Exception
   {
@@ -196,4 +197,6 @@ public class MonitoringControllerTest {
 
   }
 
+=======
+>>>>>>> 3be535c0865bb86a4fc0e35f771903a8e94a8f48
 }

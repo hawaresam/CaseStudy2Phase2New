@@ -15,6 +15,7 @@ import com.philips.casestudy.chatbot.domain.Question;
 @Service
 public class QuestionService implements QuestionServiceInterface {
 
+<<<<<<< HEAD
   QuestionDAOInterface quesDao;
 
 
@@ -27,6 +28,10 @@ public class QuestionService implements QuestionServiceInterface {
   public void setQuesDao(QuestionDAOInterface quesDao) {
     this.quesDao = quesDao;
   }
+=======
+  @Autowired
+  QuestionDAOInterface quesDao;
+>>>>>>> 3be535c0865bb86a4fc0e35f771903a8e94a8f48
 
 
   @Override
