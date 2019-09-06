@@ -15,10 +15,35 @@ import com.philips.casestudy.chatbot.dto.UserInfoDTO;
 @Service
 public class ChatbotService implements ChatBotServiceInterface {
 
+<<<<<<< HEAD
+
+  MonitoringDeviceInterface monitoringDAO;
+
+
+
+  public MonitoringDeviceInterface getMonitoringDAO() {
+    return monitoringDAO;
+  }
+
+  @Autowired
+  public void setMonitoringDAO(MonitoringDeviceInterface monitoringDAO) {
+    this.monitoringDAO = monitoringDAO;
+  }
+
+  public UserInfoInterface getUserInfoDAO() {
+    return userInfoDAO;
+  }
+
+  @Autowired
+  public void setUserInfoDAO(UserInfoInterface userInfoDAO) {
+    this.userInfoDAO = userInfoDAO;
+  }
+=======
   @Autowired
   MonitoringDeviceInterface monitoringDAO;
 
 
+>>>>>>> 3be535c0865bb86a4fc0e35f771903a8e94a8f48
 
   @Autowired
   UserInfoInterface userInfoDAO;
